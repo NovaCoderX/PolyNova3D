@@ -25,25 +25,5 @@ building your own simple 3D demos (a basic 3D construction kit).
 If you are interested about how it all works, examine the scene file
 using a text editor.
 
-Requirements:
-1) PiStorm/WinUAE.
-2) 4MB of RAM.
-
-Configuration:
-You do not need to install any OpenGL, Mesa, Warp or SDL libraries.
-Have a look at the polynova.ini for various settings, also check the ToolTypes
-for further options.
-You can change the colors of the lights etc by editing the scene file using a
-text editor.  Be warned that there isn't much in the way of error checking so
-you will just crash out if you break something in the scene file.
-The log file will output the average FPS on exit.
-
-W = Forward
-S = Backwards
-A = Strafe left
-D = Strafe right
-F1,F2,F3,F4 = Toggle the ceiling lights
-Escape = Quit
-
 Links:
 https://eab.abime.net/showthread.php?p=1702670#post1702670 (PolyNova3D thread on EAB)
