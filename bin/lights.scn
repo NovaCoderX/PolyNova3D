@@ -1,0 +1,2958 @@
+[definition]
+{
+ <defname>
+ player_head
+ <vertices>
+ -0.5,0.5,-0.5
+ 0.5,0.5,-0.5
+ 0.5,-0.5,-0.5
+ -0.5,-0.5,-0.5
+ -0.5,0.5,0.5
+ 0.5,0.5,0.5
+ 0.5,-0.5,0.5
+ -0.5,-0.5,0.5
+ <triangles>
+ 0,1,2:255,0,0
+ 0,2,3:255,0,0
+ 1,5,6:0,255,0
+ 1,6,2:0,255,0
+ 5,4,6:255,255,0
+ 4,7,6:255,255,0
+ 0,3,7:0,255,0
+ 0,7,4:0,255,0
+ 4,5,1:0,0,255
+ 4,1,0:0,0,255
+ 2,6,7:0,0,255
+ 3,2,7:0,0,255
+ <scaling>
+ 1
+}
+
+[definition]
+{
+ <defname>
+ player_body
+ <vertices>
+ -1,3,-1
+ 1,3,-1
+ 1,-3,-1
+ -1,-3,-1
+ -1,3,1
+ 1,3,1
+ 1,-3,1
+ -1,-3,1
+ <triangles>
+ 0,1,2:255,0,0
+ 0,2,3:255,0,0
+ 1,5,6:0,255,0
+ 1,6,2:0,255,0
+ 5,4,6:255,0,0
+ 4,7,6:255,0,0
+ 0,3,7:0,255,0
+ 0,7,4:0,255,0
+ 4,5,1:0,0,255
+ 4,1,0:0,0,255
+ 2,6,7:0,0,255
+ 3,2,7:0,0,255
+ <scaling>
+ 1
+}
+
+[definition]
+{
+ <defname>
+ white_tile
+ <vertices>
+ -5,0,5
+ 5,0,5
+ 5,0,-5
+ -5,0,-5
+ <triangles>
+ 0,1,2:255,255,255
+ 0,2,3:255,255,255
+ <scaling>
+ 1
+}
+
+[definition]
+{
+ <defname>
+ black_tile
+ <vertices>
+ -5,0,5
+ 5,0,5
+ 5,0,-5
+ -5,0,-5
+ <triangles>
+ 0,1,2:127,127,127
+ 0,2,3:127,127,127
+ <scaling>
+ 1 
+}
+
+[definition]
+{
+ <defname>
+ celing_tile
+ <vertices>
+ -5,0,5
+ 5,0,5
+ 5,0,-5
+ -5,0,-5
+ <triangles>
+ 0,1,2:255,255,255
+ 0,2,3:255,255,255
+ <scaling>
+ 1
+}
+
+[definition]
+{
+ <defname>
+ wall_1
+ <vertices>
+ -5,5,0
+ 5,5,0
+ 5,-5,0
+ -5,-5,0
+ <triangles>
+ 0,1,2:255,255,255
+ 0,2,3:255,255,255
+ <scaling>
+ 1
+}
+
+[definition]
+{
+ <defname>
+ wall_2
+ <vertices>
+ -5,7.072,0
+ 5,7.072,0
+ 5,-7.072,0
+ -5,-7.072,0
+ <triangles>
+ 0,1,2:255,255,255
+ 0,2,3:255,255,255
+ <scaling>
+ 1
+}
+
+[definition]
+{
+ <defname>
+ wall_3
+ <vertices>
+ 5,5,0
+ 5,-5,0
+ -5,-5,0
+ <triangles>
+ 0,1,2:255,255,255
+ <scaling>
+ 1
+}
+
+[definition]
+{
+ <defname>
+ wall_4
+ <vertices>
+ -5,5,0
+ 5,-5,0
+ -5,-5,0
+ <triangles>
+ 0,1,2:255,255,255
+ <scaling>
+ 1
+}
+
+[definition]
+{
+ <defname>
+ point_light
+ <vertices>
+ -5,0.5,-5
+ 5,0.5,-5
+ 5,-0.5,-5
+ -5,-0.5,-5
+ -5,0.5,5
+ 5,0.5,5
+ 5,-0.5,5
+ -5,-0.5,5
+ <triangles>
+ 0,1,2:125,125,125
+ 0,2,3:125,125,125
+ 1,5,6:125,125,125
+ 1,6,2:125,125,125
+ 5,4,6:125,125,125
+ 4,7,6:125,125,125
+ 0,3,7:125,125,125
+ 0,7,4:125,125,125
+ 4,5,1:125,125,125
+ 4,1,0:125,125,125
+ 2,6,7:125,125,125
+ 3,2,7:125,125,125
+ <scaling>
+ 1 
+}
+/*****************************************************************************************/
+[player_head]
+{
+ <object_name>
+ player_head
+ <max_lookup_angle>
+ -60.0
+ <max_lookdown_angle>
+ 40.0
+ <definition>
+ player_head
+ <position>
+ 0,7,0
+ <rotation>
+ 0,0,0
+ <visible>
+ NO
+ <solid>
+ NO
+}
+
+[player_body]
+{
+ <object_name>
+ player_body
+ <movement_acceleration>
+ 0.5
+ <movement_deceleration>
+ -0.5
+ <max_forward_velocity>
+ 4.0
+ <max_backward_velocity>
+ -4.0
+ <max_strafe_velocity>
+ 2.0
+ <definition>
+ player_body
+ <position>
+ 0,3,0
+ <rotation>
+ 0,0,0
+ <visible>
+ NO
+ <solid>
+ YES
+}
+/*****************************************************************************************/
+// Floor.
+// Row start.
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ -45,0,25
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ -35,0,25
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ -25,0,25
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ -15,0,25
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ -5,0,25
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ 5,0,25
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ 15,0,25
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ 25,0,25
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ 35,0,25
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ 45,0,25
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+// Row finish.
+
+// Row start.
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ -45,0,15
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ -35,0,15
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ -25,0,15
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ -15,0,15
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ -5,0,15
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ 5,0,15
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ 15,0,15
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ 25,0,15
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ 35,0,15
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ 45,0,15
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+// Row finish.
+
+// Row start.
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ -45,0,5
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ -35,0,5
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ -25,0,5
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ -15,0,5
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ -5,0,5
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ 5,0,5
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ 15,0,5
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ 25,0,5
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ 35,0,5
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ 45,0,5
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+// Row finish.
+
+// Row start.
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ -45,0,-5
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ -35,0,-5
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ -25,0,-5
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ -15,0,-5
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ -5,0,-5
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ 5,0,-5
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ 15,0,-5
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ 25,0,-5
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ 35,0,-5
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ 45,0,-5
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+// Row finish.
+
+// Row start.
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ -45,0,-15
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile 
+ <position>
+ -35,0,-15
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ -25,0,-15
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ -15,0,-15
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ -5,0,-15
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ 5,0,-15
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ 15,0,-15
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ 25,0,-15
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ 35,0,-15
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ 45,0,-15
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+// Row finish.
+
+// Row start.
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ -45,0,-25
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ -35,0,-25
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ -25,0,-25
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ -15,0,-25
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ -5,0,-25
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ 5,0,-25
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ 15,0,-25
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ 25,0,-25
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ black_tile
+ <position>
+ 35,0,-25
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ floor_tile
+ <definition>
+ white_tile
+ <position>
+ 45,0,-25
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+// Row finish.
+
+/**********************************************************************************************************/
+// North Start.
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ -45,5,30
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ -35,5,30
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ -25,5,30
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ -15,5,30
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ -5,5,30
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ 5,5,30
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ 15,5,30
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ 25,5,30
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ 35,5,30
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ 45,5,30
+ <rotation>
+ 0,0,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_2
+ <position>
+ -45,15,25
+ <rotation>
+ -45,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_2
+ <position>
+ -35,15,25
+ <rotation>
+ -45,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_2
+ <position>
+ -25,15,25
+ <rotation>
+ -45,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_2
+ <position>
+ -15,15,25
+ <rotation>
+ -45,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_2
+ <position>
+ -5,15,25
+ <rotation>
+ -45,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_2
+ <position>
+ 5,15,25
+ <rotation>
+ -45,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_2
+ <position>
+ 15,15,25
+ <rotation>
+ -45,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_2
+ <position>
+ 25,15,25
+ <rotation>
+ -45,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_2
+ <position>
+ 35,15,25
+ <rotation>
+ -45,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_2
+ <position>
+ 45,15,25
+ <rotation>
+ -45,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+// North end.
+/**********************************************************************************************************/
+// South Start.
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ -45,5,-30
+ <rotation>
+ 0,180,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ -35,5,-30
+ <rotation>
+ 0,180,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ -25,5,-30
+ <rotation>
+ 0,180,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ -15,5,-30
+ <rotation>
+ 0,180,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ -5,5,-30
+ <rotation>
+ 0,180,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ 5,5,-30
+ <rotation>
+ 0,180,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ 15,5,-30
+ <rotation>
+ 0,180,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ 25,5,-30
+ <rotation>
+ 0,180,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ 35,5,-30
+ <rotation>
+ 0,180,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ 45,5,-30
+ <rotation>
+ 0,180,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_2
+ <position>
+ -45,15,-25
+ <rotation>
+ 45,180,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_2
+ <position>
+ -35,15,-25
+ <rotation>
+ 45,180,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_2
+ <position>
+ -25,15,-25
+ <rotation>
+ 45,180,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_2
+ <position>
+ -15,15,-25
+ <rotation>
+ 45,180,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_2
+ <position>
+ -5,15,-25
+ <rotation>
+ 45,180,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_2
+ <position>
+ 5,15,-25
+ <rotation>
+ 45,180,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_2
+ <position>
+ 15,15,-25
+ <rotation>
+ 45,180,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_2
+ <position>
+ 25,15,-25
+ <rotation>
+ 45,180,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_2
+ <position>
+ 35,15,-25
+ <rotation>
+ 45,180,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_2
+ <position>
+ 45,15,-25
+ <rotation>
+ 45,180,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+// South end.
+/**********************************************************************************************************/
+// East start.
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ 50,5,25
+ <rotation>
+ 0,90,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ 50,5,15
+ <rotation>
+ 0,90,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ 50,5,5
+ <rotation>
+ 0,90,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ 50,5,-5
+ <rotation>
+ 0,90,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ 50,5,-15
+ <rotation>
+ 0,90,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ 50,5,-25
+ <rotation>
+ 0,90,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_3
+ <position>
+ 50,15,25
+ <rotation>
+ 0,90,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ 50,15,15
+ <rotation>
+ 0,90,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ 50,15,5
+ <rotation>
+ 0,90,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ 50,15,-5
+ <rotation>
+ 0,90,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ 50,15,-15
+ <rotation>
+ 0,90,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_4
+ <position>
+ 50,15,-25
+ <rotation>
+ 0,90,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+// East end.
+/**********************************************************************************************************/
+// West start.
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ -50,5,25
+ <rotation>
+ 0,-90,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ -50,5,15
+ <rotation>
+ 0,-90,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ -50,5,5
+ <rotation>
+ 0,-90,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ -50,5,-5
+ <rotation>
+ 0,-90,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ -50,5,-15
+ <rotation>
+ 0,-90,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ -50,5,-25
+ <rotation>
+ 0,-90,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_4
+ <position>
+ -50,15,25
+ <rotation>
+ 0,-90,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ -50,15,15
+ <rotation>
+ 0,-90,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ -50,15,5
+ <rotation>
+ 0,-90,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ -50,15,-5
+ <rotation>
+ 0,-90,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_1
+ <position>
+ -50,15,-15
+ <rotation>
+ 0,-90,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ wall_tile
+ <definition>
+ wall_3
+ <position>
+ -50,15,-25
+ <rotation>
+ 0,-90,0
+ <visible>
+ YES
+ <solid>
+ YES
+}
+// West end.
+/**********************************************************************************************************/
+
+
+/**********************************************************************************************************/
+// Celing.
+// Row start.
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ -45,20,15
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ -45,20,5
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ -45,20,-5
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ -45,20,-15
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+// Row finish.
+
+// Row start.
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ -35,20,15
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ -35,20,5
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ -35,20,-5
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ -35,20,-15
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+// Row finish.
+
+// Row start.
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ -25,20,5
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ -25,20,-5
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+// Row finish.
+
+// Row start.
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ -15,20,15
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ -15,20,5
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ -15,20,-5
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ -15,20,-15
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+// Row finish.
+
+// Row start.
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ -5,20,15
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ -5,20,5
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ -5,20,-5
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ -5,20,-15
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+// Row finish.
+
+// Row start.
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ 5,20,15
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ 5,20,5
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ 5,20,-5
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ 5,20,-15
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+// Row finish.
+
+// Row start.
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ 15,20,15
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ 15,20,5
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ 15,20,-5
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ 15,20,-15
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+// Row finish.
+
+// Row start.
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ 25,20,5
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ 25,20,-5
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+// Row finish.
+
+// Row start.
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ 35,20,15
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ 35,20,5
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ 35,20,-5
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ 35,20,-15
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+// Row finish.
+
+// Row start.
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ 45,20,15
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ 45,20,5
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ 45,20,-5
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+
+[object]
+{
+ <object_name>
+ celing_tile
+ <definition>
+ celing_tile
+ <position>
+ 45,20,-15
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+}
+// Row finish.
+/**********************************************************************************************************/
+[ambientlight]
+{
+ <color>
+ 55,55,55
+ <enabled>
+ NO
+}
+
+[directlight]
+{
+ <color>
+ 0,0,255
+ <direction>
+ 1,1,0
+ <enabled>
+ NO
+}
+
+[pointlight]
+{
+ <object_name>
+ light_one
+ <definition>
+ point_light
+ <position>
+ -25,19.5,15
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+ <color>
+ 255,0,0
+ <max_distance>
+ 40
+ <enabled>
+ YES
+}
+
+[pointlight]
+{
+ <object_name>
+ light_two
+ <definition>
+ point_light
+ <position>
+ 25,19.5,15
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+ <color>
+ 0,255,0
+ <max_distance>
+ 40
+ <enabled>
+ YES
+}
+
+[pointlight]
+{
+ <object_name>
+ light_three
+ <definition>
+ point_light
+ <position>
+ 25,19.5,-15
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+ <color>
+ 255,0,0
+ <max_distance>
+ 40
+ <enabled>
+ YES
+}
+
+[pointlight]
+{
+ <object_name>
+ light_four
+ <definition>
+ point_light
+ <position>
+ -25,19.5,-15
+ <rotation>
+ 180,0,0
+ <visible>
+ YES
+ <solid>
+ NO
+ <color>
+ 0,255,0
+ <max_distance>
+ 40
+ <enabled>
+ YES
+}
+
+
