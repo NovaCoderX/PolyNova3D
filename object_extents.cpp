@@ -85,17 +85,6 @@ ObjectExtents::ObjectExtents(BaseObject *requestorObject) {
 		}
 	}
 
-	//LogDebugMessage("SphereExtents::BEFORE - lf_minZ = %f6.3, lf_maxZ = %f6.3\n", lf_minZ, lf_maxZ);
-
-	// TODO - Instead of doing this hack we should create additional vertices.
-	// in the middle of the cube to increase resolution.
-	// Make sure we have a minimum depth to our virtual cube.
-	if (lf_maxZ - lf_minZ < 2.0f) {
-		lf_minZ -= 2.0f - (lf_maxZ - lf_minZ);
-	}
-
-	//LogDebugMessage("SphereExtents::AFTER - lf_minZ = %f6.3, lf_maxZ = %f6.3\n", lf_minZ, lf_maxZ);
-
 	// Using these two points, calculate the other six points of our bounding box.
 	extentsLCS[0] = NovaVertex(lf_maxX, lf_maxY, lf_minZ);
 	extentsLCS[1] = NovaVertex(lf_minX, lf_maxY, lf_minZ);

@@ -44,6 +44,22 @@ Display::~Display() {
 }
 
 void Display::initialize(int screenWidth, int screenHeight, bool enableDepthBuffer, float nearZ, float farZ) {
+	if (screenWidth <= 0) {
+		FatalError("Screen width must be greater than zero\n");
+	}
+
+	if (screenHeight <= 0) {
+		FatalError("Screen height must be greater than zero\n");
+	}
+
+	if (nearZ <= 0) {
+		FatalError("Camera nearZ must be greater than zero\n");
+	}
+
+	if (farZ <= 0) {
+		FatalError("Camera farZ must be greater than zero\n");
+	}
+
 	this->screenWidth = screenWidth;
 	this->screenHeight = screenHeight;
 

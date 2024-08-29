@@ -46,9 +46,11 @@ BaseObject::~BaseObject() {
 }
 
 void BaseObject::setObjectDefinition(ObjectDefinition *definition) {
-	this->definition = definition;
+	if (!definition) {
+		FatalError("Object definition is invalid\n");
+	}
 
-	//LogDebugMessage("Obj = %s, def = %s\n", this->getName(), curdef->getName());
+	this->definition = definition;
 
 	if (extents) {
 		delete extents;

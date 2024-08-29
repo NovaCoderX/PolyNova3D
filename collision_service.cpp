@@ -26,14 +26,10 @@ CollisionService::CollisionService(BaseObject *requestorObject) {
 }
 
 bool CollisionService::checkCollision(BaseObject *solidObject) {
-	//LogDebugMessage("CollisionService::checkCollision(%s) - START\n", object->getName());
-
 	// First check a see if the bounding spheres intersect.
 	if (!sphereToSphere(solidObject)) {
 		return false;
 	}
-
-	//LogDebugMessage("CollisionService::checkCollision(%s) - sphere to sphere hit\n", solidObject->getName());
 
 	// A bounding spheres intersection occurred, we then test using a more sophisticated method.
 	return sphereToBox(solidObject);
@@ -59,11 +55,8 @@ bool CollisionService::sphereToBox(BaseObject *solidObject) {
 
 	solidObject->getExtents()->updateExtents();
 
-	//LogDebugMessage("sphereToWall() - object->getBoundingSphere() = %f6.3\n", solidObject->getBoundingSphere());
-
 	for (int i = 0; i < solidObject->getExtents()->getNumExtents(); i++) {
 		between = requestorObject->getPositionWCS() - solidObject->getExtents()->getExtent(i);
-		//LogDebugMessage("sphereToWall(%d) - lv_between.magnitude() = %f6.3\n", i, lv_between.magnitude());
 		if (between.magnitude() < solidObject->getBoundingSphere()) {
 			return true;
 		}
