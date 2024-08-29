@@ -16,8 +16,7 @@ demanding it would be to run it without any hardware acceleration.
 As PolyNova3D is all about the realtime lighting, I needed to target at
 least 16bit color depth and also needed something to render the triangles.
 PolyNova3D used to run on Windows and use DirectX for triangle rendering 
-so for this 68K port I decided to port an updated version of 
-Mesa OpenGL and then add it to SDL (which is what we are using here).
+so for this 68K port I decided to use Mesa OpenGL SDL.
 PolyNova3D is a pure software 3D engine and because this port of Mesa lacks
 any hardware acceleration, this is a pure software implementation of 3D.
 The idea behind PolyNova3D was that it could be used as the foundation for 
