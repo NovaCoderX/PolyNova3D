@@ -238,11 +238,11 @@ bool BaseObject::isVisibile() {
 
 	// Check near/far Z limits.
 	if ((locationCCS.z + extents->getBoundingSphere()) < g_world->getCamera()->getNearZ()
-			|| (locationCCS.z + extents->getBoundingSphere()) > g_world->getCamera()->getFarZ()) {
+			|| (locationCCS.z - extents->getBoundingSphere()) > g_world->getCamera()->getFarZ()) {
 		return false;
 	}
 
-	// If the object's origin is within the view port then it's definitely visible..
+	// If the object's origin is within the view port then it's definitely visible.
 	if (g_world->getCamera()->checkProjectedPoint(locationCCS)) {
 		return true;
 	}
