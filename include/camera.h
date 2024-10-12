@@ -65,7 +65,7 @@ private:
 	BaseObject *cameraObject; // The object acting as the camera.
 	AstMatrix4x3 worldToCamera; // LCS->WCS (inverse).
 
-	// Res parameters.
+	// Resolution parameters.
 	int SCREEN_WIDTH_ZERO_INDEXED;
 	int SCREEN_HEIGHT_ZERO_INDEXED;
 	int HALF_SCREEN_WIDTH;
