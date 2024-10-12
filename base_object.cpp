@@ -236,18 +236,21 @@ bool BaseObject::isVisibile() {
 
 	locationCCS = (getPositionWCS() * g_world->getCamera()->getWorldToCameraMatrix());
 
-	if ((locationCCS.z + extents->getBoundingSphere()) < g_world->getCamera()->getNearZ()) {
+	// Check near/far Z limits.
+	if ((locationCCS.z + extents->getBoundingSphere()) < g_world->getCamera()->getNearZ()
+			|| (locationCCS.z + extents->getBoundingSphere()) > g_world->getCamera()->getFarZ()) {
 		return false;
 	}
 
-	// If the object's origin is within the view port then it's definitely visible.
+	// If the object's origin is within the view port then it's definitely visible..
 	if (g_world->getCamera()->checkProjectedPoint(locationCCS)) {
 		return true;
 	}
 
 	// Take the objects extents into account.
 	NovaVertex topR = NovaVertex(extents->getBoundingSphere() + locationCCS.x, extents->getBoundingSphere() + locationCCS.y, locationCCS.z);
-	NovaVertex botL = NovaVertex(-extents->getBoundingSphere() + locationCCS.x, -extents->getBoundingSphere() + locationCCS.y, locationCCS.z);
+	NovaVertex botL = NovaVertex(-extents->getBoundingSphere() + locationCCS.x, -extents->getBoundingSphere() + locationCCS.y,
+			locationCCS.z);
 	return g_world->getCamera()->checkProjectedPoints(topR, botL);
 }
 
@@ -462,7 +465,7 @@ void BaseObject::applyLighting() {
 	for (int i = 0; i < g_world->numEnabledLights; i++) {
 		switch (g_world->enabledLights[i]->GetType()) {
 		case LIGHTING_TYPE_AMBIENT:
-			addAmbientLight((AmbientLight*)g_world->enabledLights[i]);
+			addAmbientLight((AmbientLight*) g_world->enabledLights[i]);
 			break;
 
 		case LIGHTING_TYPE_DIRECT:

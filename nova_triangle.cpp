@@ -75,6 +75,7 @@ bool NovaTriangle::transform(const AstMatrix4x3 &matrix) {
 			scratchVertex[i]->setStage(RENDER_STAGE_TRANSFORMED);
 		}
 
+		// Check near/far Z limits.
 		if (scratchVertex[i]->z < g_world->getCamera()->getNearZ() || scratchVertex[i]->z > g_world->getCamera()->getFarZ()) {
 			invalidVerts++;
 		}
