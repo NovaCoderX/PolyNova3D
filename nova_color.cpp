@@ -22,8 +22,6 @@
 NovaColor operator *(NovaColor &a, float val) {
 	int a_red, a_green, a_blue;
 
-	//LogDebugMessage("color operator A called - %f6.3\n", val);
-
 	a_red = (int) (a.getRed() * val);
 	a_green = (int) (a.getGreen() * val);
 	a_blue = (int) (a.getBlue() * val);
@@ -71,8 +69,6 @@ void NovaColor::operator *=(float val) {
 	red = (int) (red * val);
 	green = (int) (green * val);
 	blue = (int) (blue * val);
-
-	//LogDebugMessage("color operator B called - %f6.3\n", val);
 
 	// Must check for overflow.
 	if (red > 255)

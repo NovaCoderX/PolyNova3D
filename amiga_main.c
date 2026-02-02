@@ -28,19 +28,16 @@
 #include <workbench/startup.h>
 
 
-char *ID = "$VER: PolyNova3D 3.3.04\r\n";
+const char *ID = "$VER: PolyNova3D 3.3.06\r\n";
 
 // The startup message from workbench or 0 if started via CLI.
 extern struct WBStartup *_WBenchMsg;
 
-#define MAX_ARGVS   100
+#define MAX_ARGVS 100
 static char *myargv[MAX_ARGVS];
 static int myargc = 0;
 
 extern void poly_nova_main(void);
-
-
-
 
 int main(int argc, char *argv[]) {
 	if (_WBenchMsg) {

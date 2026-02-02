@@ -35,6 +35,7 @@ BaseObject::BaseObject(const char *name) {
 	objectToWorldMatrix.MakeIdentity();
 	triangle_list_head = NULL;
 	extents = NULL;
+	invisible = false;
 	solid = false;
 }
 
@@ -234,24 +235,28 @@ void BaseObject::rotateAroundZ(float degrees) {
 bool BaseObject::isVisibile() {
 	static NovaVertex locationCCS;
 
-	locationCCS = (getPositionWCS() * g_world->getCamera()->getWorldToCameraMatrix());
-
-	// Check near/far Z limits.
-	if ((locationCCS.z + extents->getBoundingSphere()) < g_world->getCamera()->getNearZ()
-			|| (locationCCS.z - extents->getBoundingSphere()) > g_world->getCamera()->getFarZ()) {
+	if (invisible) {
 		return false;
-	}
+	} else {
+		locationCCS = (getPositionWCS() * g_world->getCamera()->getWorldToCameraMatrix());
 
-	// If the object's origin is within the view port then it's definitely visible.
-	if (g_world->getCamera()->checkProjectedPoint(locationCCS)) {
-		return true;
-	}
+		// Check near/far Z limits.
+		if ((locationCCS.z + extents->getBoundingSphere()) < g_world->getCamera()->getNearZ()
+				|| (locationCCS.z - extents->getBoundingSphere()) > g_world->getCamera()->getFarZ()) {
+			return false;
+		}
 
-	// Take the objects extents into account.
-	NovaVertex topR = NovaVertex(extents->getBoundingSphere() + locationCCS.x, extents->getBoundingSphere() + locationCCS.y, locationCCS.z);
-	NovaVertex botL = NovaVertex(-extents->getBoundingSphere() + locationCCS.x, -extents->getBoundingSphere() + locationCCS.y,
-			locationCCS.z);
-	return g_world->getCamera()->checkProjectedPoints(topR, botL);
+		// If the object's origin is within the view port then it's definitely visible.
+		if (g_world->getCamera()->checkProjectedPoint(locationCCS)) {
+			return true;
+		}
+
+		// Take the objects extents into account.
+		NovaVertex topR = NovaVertex(extents->getBoundingSphere() + locationCCS.x, extents->getBoundingSphere() + locationCCS.y, locationCCS.z);
+		NovaVertex botL = NovaVertex(-extents->getBoundingSphere() + locationCCS.x, -extents->getBoundingSphere() + locationCCS.y,
+				locationCCS.z);
+		return g_world->getCamera()->checkProjectedPoints(topR, botL);
+	}
 }
 
 void BaseObject::draw() {

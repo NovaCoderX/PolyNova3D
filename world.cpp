@@ -107,7 +107,6 @@ void World::create() {
 	LogMessage("Creating the World.....\n");
 
 	Open_IniFile();
-
 	IniFile_GetString("scene_file", "lights.scn", sceneName, PATH_MAX);
 	int screenWidth = IniFile_GetInteger("screen_width", 640);
 	int	screenHeight = IniFile_GetInteger("screen_height", 480);
@@ -115,11 +114,11 @@ void World::create() {
 	unsigned int fov = IniFile_GetInteger("fov", 600);
 	float nearZ = IniFile_GetFloat("nearZ", 1.0f);
 	float farZ = IniFile_GetFloat("farZ", 140.0f);
-
+	bool fullscreen = (IniFile_GetInteger("fullscreen", 1) != 0) ? true : false;
 	Close_IniFile();
 
 	display = new Display();
-	display->initialize(screenWidth, screenHeight, enableDepthBuffer, nearZ, farZ);
+	display->initialize(screenWidth, screenHeight, enableDepthBuffer, nearZ, farZ, fullscreen);
 
 	// Open the scene file, any errors and FatalError() will be called directly.
 	scene = new SceneDefinition();
@@ -273,12 +272,12 @@ void World::run() {
 	Uint32 currentFrameTime;
 
 	while (true) {
-		// First capture any pending user input.
-		display->captureUserInput();
+		// First process any pending user input.
+		display->processUserInput();
 
 		// That update the World based on that user input in a linear fashion.
 		currentFrameTime = SDL_GetTicks();
-		player->doSomething((currentFrameTime - lastFrameTime) / 1000.0);
+		player->doSomething((currentFrameTime - lastFrameTime) / 100.0);
 		lastFrameTime = currentFrameTime;
 
 		// If a collision occurs (as a result of the last user input) then we need to move the object in the
@@ -337,9 +336,7 @@ void World::calculateVisibleObjects() {
 			} else {
 				LogWarningMessage("Too many visible objects!\n");
 			}
-		} //else {
-		//	LogDebugMessage("Obj = %s, def = %s is invisible\n", object->getName(), object->getObjectDefinition()->getName());
-		//}
+		}
 
 		object = object->next_in_list;
 	}

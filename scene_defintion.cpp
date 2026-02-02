@@ -543,6 +543,7 @@ void SceneDefinition::LoadObjects() {
 	float x, y, z;
 	char objName[20];
 	char defName[20];
+	char visible[10];
 	char solid[10];
 	char mainSection[] = { "object" };
 
@@ -575,6 +576,14 @@ void SceneDefinition::LoadObjects() {
 		baseObjects[i].rotateAroundX(x);
 		baseObjects[i].rotateAroundY(y);
 		baseObjects[i].rotateAroundZ(z);
+
+		moveToSubSection(mainSection, "visible");
+		loadData(mainSection, visible[0]);
+		if ((strcmp("NO", visible)) == 0) {
+			baseObjects[i].setInvisible(true);
+		} else {
+			baseObjects[i].setInvisible(false);
+		}
 
 		moveToSubSection(mainSection, "solid");
 		loadData(mainSection, solid[0]);
