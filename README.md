@@ -13,8 +13,8 @@ I had some of my old source code sitting around on floppy discs so I thought
 I'd try and port a version of PolyNova3D to Amiga before it was lost forever.
 I choose a very basic version of PolyNova3D to port because I knew how
 demanding it would be to run it without any hardware acceleration.
-As PolyNova3D is all about the realtime lighting, I needed to target at
-least 16bit color depth and also needed something to render the triangles.
+As PolyNova3D is all about the realtime lighting, I needed to target
+32-bit color depth and also needed something to render the triangles.
 PolyNova3D used to run on Windows and use DirectX for triangle rendering 
 so for this Amiga port I decided to use OpenGL (SDL).
 PolyNova3D is a pure software 3D engine (no hardware acceleration used).
