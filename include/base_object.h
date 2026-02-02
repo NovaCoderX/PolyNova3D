@@ -79,6 +79,10 @@ public:
 	void rotateAroundY(float degrees);
 	void rotateAroundZ(float degrees);
 
+	void setInvisible(bool invisible) {
+		this->invisible = invisible;
+	}
+
 	bool isVisibile();
 
 	void setSolid(bool solid) {
@@ -109,6 +113,7 @@ protected:
 
 	//SphereExtents *sphereExtents;
 	ObjectExtents *extents;
+	bool invisible;
 	bool solid;
 
 

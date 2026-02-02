@@ -25,7 +25,7 @@ public:
 	Display();
 	~Display();
 
-	void initialize(int screenWidth, int screenHeight, bool enableDepthBuffer, float nearZ, float farZ);
+	void initialize(int screenWidth, int screenHeight, bool enableDepthBuffer, float nearZ, float farZ, bool fullscreen);
 
 	int getScreenWidth() {
 		return screenWidth;
@@ -35,14 +35,6 @@ public:
 		return screenHeight;
 	}
 
-	void captureUserInput();
-
-	void begin();
-	void drawTriangle(NovaTriangle *triangle);
-	void end();
-
-	void displayFrameRate();
-
 	void getMouseMovement(int &x, int &y) {
 		x = mouseMovementX;
 		y = mouseMovementY;
@@ -51,11 +43,25 @@ public:
 		mouseMovementX = mouseMovementY = 0;
 	}
 
+	void grabMouse(bool enable);
+	void toggleMouseGrab();
+	void toggleFullScreen();
+	void processUserInput();
+	void begin();
+	void drawTriangle(NovaTriangle *triangle);
+	void end();
+	void displayFrameRate();
+
 private:
 	int screenWidth, screenHeight;
+	bool enableDepthBuffer;
+	float nearZ;
+	float farZ;
 	int numFrames;
+	bool fullscreen;
 	int mouseMovementX, mouseMovementY;
 	bool depthTestEnabled;
+	bool mouseCaptured;
 };
 
 #endif // __DISPLAY_H
