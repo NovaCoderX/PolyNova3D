@@ -201,6 +201,11 @@ void Display::toggleFullScreen() {
 		SDL_UpdateRect(screen, 0, 0, 0, 0);
 	}
 
+	// Grab mouse if fullscreen.
+	if (fullscreen) {
+		grabMouse(true);
+	}
+
 	// Setup OpenGL (again).
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 	glMatrixMode(GL_PROJECTION);
