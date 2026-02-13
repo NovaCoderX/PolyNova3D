@@ -28,7 +28,7 @@
 #include <workbench/startup.h>
 
 
-const char *ID = "$VER: PolyNova3D 3.3.06\r\n";
+const char *ID = "$VER: PolyNova3D 3.3.10\r\n";
 
 // The startup message from workbench or 0 if started via CLI.
 extern struct WBStartup *_WBenchMsg;

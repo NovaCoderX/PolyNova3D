@@ -359,7 +359,7 @@ void Display::drawTriangle(NovaTriangle *triangle) {
 void Display::end() {
 	// Show the new frame.
 	glEnd();
-	glFlush();
+	//glFlush();
 	SDL_GL_SwapBuffers();
 	numFrames++;
 }
