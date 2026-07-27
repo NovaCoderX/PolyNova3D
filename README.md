@@ -8,7 +8,7 @@ performance on Amiga (PiStorm) as a viable option for simple games.
 A very long time ago (30 years!), I was into 3D coding and started with 
 Qbasic on DOS building 'Dungeon Master' style engines with primitive lighting.
 I then built a series of my own 3D engines based on a DOS 3D engine
-using C++ with realtime lighting, texture mapping and animation.  
+using C++ and adding realtime lighting, texture mapping and animation.  
 I had some of my old source code sitting around on floppy discs so I thought
 I'd try and port a version of PolyNova3D to Amiga before it was lost forever.
 I choose a very basic version of PolyNova3D to port because I knew how
